@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+<head>
+    <title>Styled Button Example</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;  
+        }
+
+        .ParentContainer {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;   
+            align-items: center;  
+        }
+
+        .PrimaryButton {
+            background-color: #36b3fc;
+            border: 2px solid rgb(8, 0, 65);
+            color: white;
+            padding: 10px 20px;
+            text-align: center; 
+            text-decoration: none;
+            margin: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .StartPauseTimer {
+            margin: 12px 5px; 
+        }
+
+        
+        #overlay {
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            width: 100%;
+            height: 100%; 
+            background: rgba(255,255,255,0.7); 
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            z-index: 10; 
+        }
+
+    </style>
+    <title>solitaire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div id="overlay">
+        <span id="instructionText">Press Start to begin</span>
+        <button id="startButton" class="PrimaryButton">Start</button>
+    </div>
+
+    <div class="ParentContainer">
+        <button id="newButton" class="PrimaryButton" onclick="location.reload()">New Game</button>
+        <button id="pauseButton" class="PrimaryButton StartPauseTimer">||</button>
+        <span id="timer" class="PrimaryButton StartPauseTimer">00:00</span>
+        <span id="moveCounter" class="PrimaryButton StartPauseTimer">Moves: 0</span>
+    </div>
+    
+    <canvas id="GameBoard" width="1000" height="1000"></canvas>
+    <script src="shell.script.js" type="module"></script>
+    <script src="Timer.js"></script>
+</body>
+
+</html>
