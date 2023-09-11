@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+    <title>Solitaire Game Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .feedback-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .feedback-container input[type="text"],
+        .feedback-container input[type="email"],
+        .feedback-container select,
+        .feedback-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .feedback-container button {
+            padding: 10px 20px;
+            background-color: #36b3fc;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="feedback-container">
+    <h2>Solitaire Game Feedback</h2>
+    <form id="feedbackForm">
+        <input type="text" id="name" name="name" placeholder="Your name" />
+        <input type="email" id="email" name="email" placeholder="Your email" />
+        <select id="feedback-type" name="feedback-type">
+            <option value="">Select feedback type</option>
+            <option value="Bug report">Bug report</option>
+            <option value="Feature request">Feature request</option>
+            <option value="General feedback">General feedback</option>
+        </select>
+        <textarea id="issue-description" name="issue-description" placeholder="Describe any issues you encountered" rows="5"></textarea>
+        <textarea id="general-feedback" name="general-feedback" placeholder="General feedback" rows="5"></textarea>
+        <button type="button" onclick="sendFeedback()">Send Feedback</button>
+    </form>
+    <!-- Adding a return to game button -->
+    <button onclick="window.location.href='index.html'">Return to Game</button>
+</div>
+
+<script>
+    function sendFeedback() {
+        var form = document.getElementById('feedbackForm');
+        
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var feedbackType = document.getElementById('feedback-type').value;
+        var issueDescription = document.getElementById('issue-description').value;
+        var generalFeedback = document.getElementById('general-feedback').value;
+
+        var body = `Name: ${name}\nEmail: ${email}\nFeedback Type: ${feedbackType}\nIssue Description: ${issueDescription}\nGeneral Feedback: ${generalFeedback}`;
+
+        window.location.href = `mailto:your_email@example.com?subject=Solitaire Game Feedback&body=${encodeURIComponent(body)}`;
+        
+        // Show appreciation message
+        alert("Thank you for your feedback! We appreciate your input and will take it into account as we continue to improve the game.");
+        
+        // Reset the form
+        form.reset();
+    }
+</script>
+
+</body>
+</html>

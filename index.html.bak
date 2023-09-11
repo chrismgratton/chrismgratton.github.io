@@ -70,7 +70,6 @@
         <button id="pauseButton" class="PrimaryButton StartPauseTimer">||</button>
         <span id="timer" class="PrimaryButton StartPauseTimer">00:00</span>
         <span id="moveCounter" class="PrimaryButton StartPauseTimer">Moves: 0</span>
-		<button id="helpButton" class="PrimaryButton" onclick="window.location.href='feedback.html'">Help</button>
     </div>
     
     <canvas id="GameBoard" width="1000" height="1000"></canvas>
