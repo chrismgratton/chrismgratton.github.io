@@ -3,42 +3,49 @@
 <head>
     <title>Solitaire Game Feedback</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .feedback-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .feedback-container input[type="text"],
-        .feedback-container input[type="email"],
-        .feedback-container select,
-        .feedback-container textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .feedback-container button {
-            padding: 10px 20px;
-            background-color: #36b3fc;
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5; /* Neutral Background */
+        color: #333; /* Dark text for better readability */
+    }
+    .feedback-container {
+        background-color: #ffffff; /* White background for the container */
+        padding: 20px;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .feedback-container input[type="text"],
+    .feedback-container input[type="email"],
+    .feedback-container select,
+    .feedback-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #e0e0e0; /* Soft border color */
+        border-radius: 5px; /* Slightly rounded corners for inputs */
+        background-color: #f9f9f9; /* Very light gray background for input fields */
+        color: #333; /* Dark text in input fields */
+    }
+    .feedback-container button {
+        padding: 10px 20px;
+        background-color: #8ecae6; /* Soft blue for the button */
+        border: none;
+        color: #fff; /* White text on the button */
+        font-size: 16px;
+        border-radius: 5px; /* Rounded corners for the button */
+        cursor: pointer;
+        margin-right: 10px; /* Space between the buttons */
+    }
+    .feedback-container button:last-of-type {
+        background-color: #219ebc; /* A different shade of blue for the second button */
+    }
+</style>
 </head>
 <body>
 

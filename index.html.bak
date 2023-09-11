@@ -3,56 +3,45 @@
 
 <head>
     <title>Styled Button Example</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            margin: 0;  
-        }
-
-        .ParentContainer {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;   
-            align-items: center;  
-        }
-
-        .PrimaryButton {
-            background-color: #36b3fc;
-            border: 2px solid rgb(8, 0, 65);
-            color: white;
-            padding: 10px 20px;
-            text-align: center; 
-            text-decoration: none;
-            margin: 12px;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-
-        .StartPauseTimer {
-            margin: 12px 5px; 
-        }
-
-        
-        #overlay {
-            position: absolute;
-            top: 0; 
-            left: 0; 
-            width: 100%;
-            height: 100%; 
-            background: rgba(255,255,255,0.7); 
-            display: flex;
-            flex-direction: column; 
-            justify-content: center;
-            align-items: center;
-            z-index: 10; 
-        }
-
-    </style>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #184d47; /* Dark Green Background */
+        color: #f0e9e2; /* Off-white text color for better readability on dark background */
+    }
+    .feedback-container {
+        background-color: #d4ac0d; /* Golden background for the container */
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .feedback-container input[type="text"],
+    .feedback-container input[type="email"],
+    .feedback-container select,
+    .feedback-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #c0392b; /* Deep red border */
+        border-radius: 4px;
+        background-color: #f0e9e2; /* Off-white background for input fields */
+        color: #000; /* Black text in input fields */
+    }
+    .feedback-container button {
+        padding: 10px 20px;
+        background-color: #27ae60; /* Green button */
+        border: none;
+        color: #fff; /* White text on the button */
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
     <title>solitaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
@@ -70,6 +59,7 @@
         <button id="pauseButton" class="PrimaryButton StartPauseTimer">||</button>
         <span id="timer" class="PrimaryButton StartPauseTimer">00:00</span>
         <span id="moveCounter" class="PrimaryButton StartPauseTimer">Moves: 0</span>
+		<button id="helpButton" class="PrimaryButton" onclick="window.location.href='feedback.html'">Help</button>
     </div>
     
     <canvas id="GameBoard" width="1000" height="1000"></canvas>
