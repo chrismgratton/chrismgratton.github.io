@@ -2,7 +2,9 @@
 <html lang="EN">
 
 <head>
-    <title>Styled Button Example</title>
+    <title>Solitaire</title>
+    <script src="Timer.js"></script>
+<script src="Tutorial.js"></script>
     <style>
         body {
             display: flex;
@@ -51,6 +53,80 @@
             align-items: center;
             z-index: 10; 
         }
+        #tutorialOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            overflow-y: scroll;
+            z-index: 20;  
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            #tutorialContent h1 {
+                text-align: center;
+            }
+
+            .tutorial-section img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 80%; 
+                max-width: 600px; 
+                height: auto;
+   
+            }
+
+            .tutorial-section {
+                position: relative;
+            }
+
+            .tutorial-section h2 {
+                position: absolute;
+                bottom: 10px; 
+                right: 10px; 
+            }
+                .tableau-points {
+                    
+                list-style-type: none;
+                margin-left: 20px; 
+                font-size: 32px; 
+                padding-left: 0;
+                line-height: 1.5;
+                text-align: center; 
+            }
+            .tableau-point {
+                    
+                    list-style-type: none; 
+                    margin-left: 20px; 
+                    font-size: 23px; 
+                    padding-left: 0;
+                    line-height: 1.5;
+                    text-align: center; 
+                }
+
+            .tableau-points li:before {
+                content: "\2022"; 
+                color: #007BFF;   
+                font-weight: bold;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em; 
+            }
+            .tableau-point li:before {
+                content: "\2022"; 
+                color: #007BFF;   
+                font-weight: bold;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+            }
+
+}
 
     </style>
     <title>solitaire</title>
@@ -60,17 +136,86 @@
 
 <body>
 
-    <div id="overlay">
-        <span id="instructionText">Press Start to begin</span>
-        <button id="startButton" class="PrimaryButton">Start</button>
+    <body>
+
+        <div id="overlay">
+            <span id="instructionText">Press Start to begin</span>
+            <button id="startButton" class="PrimaryButton">Start</button>
+        </div>
+    
+        <div id="tutorialOverlay" style="display: none; position: fixed; top: 25%; left: 25%; width: 50%; height: 50%; background: rgba(255,255,255,0.9); overflow-y: scroll;">
+            <div id="tutorialContent">
+                
+                <div class="tutorial-section">
+                    <h1>How to Play Solitaire</h1>
+                    <img src="./tutorialpics/Solitaire1.png" alt="Solitaire overall">
+              
+                </div>
+                <div class="tutorial-section">
+                    <h1>The Tableau</h1>
+                    <img src="./tutorialpics/Solitaire2.png" alt="Solitaire tableau">
+                    <ul><ul class="tableau-points">
+                        <li>There are 7 piles of cards.</li>
+                        <li>The first card in each pile is face up.</li>
+                        <li>The rest of the cards are face down.</li>
+                    </ul>
+                </div>
+                <div class="tutorial-section">
+                    <h1>The Foundation Piles</h1>
+                    <img src="./tutorialpics/Solitaire3.png" alt="Solitaire foundation">
+                    <ul class="tableau-points">
+                        <li>There are 4 piles of cards.</li>
+                        <li>The cards are built up in suit, from ace to king.</li>
+                    </ul>
+                </div>
+                <div class="tutorial-section">
+                    <h1>The Stock Pile</h1>
+                    <img src="./tutorialpics/Solitaire4.png" alt="Solitaire foundation">
+                    <ul class="tableau-points">
+                        <li>A pile of cards that is face down.</li>
+                        <li>You can turn over the top card of the stock pile.</li>
+                    </ul>
+                </div>
+                <div class="tutorial-section">
+                    <h1>The Waste Pile</h1>
+                    <img src="./tutorialpics/Solitaire5.png" alt="Solitaire foundation">
+                    <ul class="tableau-points">
+                        <li>A pile of cards that are face up.</li>
+                        <li>Cards from the waste pile can be moved to the tableau or the foundation piles.</li>
+                    </ul>
+            </div>
+            <div class="tutorial-section">
+                <h1> How To Move Cards</h1>
+                <ul class="tableau-point">
+            
+                    <li>Move: Move a card to a pile if it is one rank higher than the card on top and of a different color.</li>
+                    <li>King: Move a king to an empty space.</li>
+                    <li>Stock: If you can't move any cards, turn over the top card of the stock pile.</li>
+                    <li>Waste: You can move cards from the waste pile to the tableau or the foundation piles.</li>
+                    <li>Aces: Aces can be moved to the foundation piles as soon as they are exposed, regardless of their color.</li>
+                    <img src="./tutorialpics/Solitaire6.png" alt="Solitaire foundation">
+                </ul>
+        </div>
+        <div class="tutorial-section">
+            <h1>How to Win</h1>
+            <ul class="tableau-points">
+                <img src="./tutorialpics/Solitaire7.png" alt="Solitaire foundation">
+                <li>The game is won when all the cards are moved to the foundation piles. </li>
+                
+            </ul>
     </div>
+        </div>
+            <button id="prevButton" style="position: absolute; bottom: 10px; left: 10px;">Previous</button>
+            <button id="nextButton" style="position: absolute; bottom: 10px; right: 10px;">Next</button>
+            <button id="closeTutorialButton" style="position: absolute; top: 10px; right: 10px;">Close</button>
+        </div>
 
     <div class="ParentContainer">
         <button id="newButton" class="PrimaryButton" onclick="location.reload()">New Game</button>
         <button id="pauseButton" class="PrimaryButton StartPauseTimer">||</button>
         <span id="timer" class="PrimaryButton StartPauseTimer">00:00</span>
         <span id="moveCounter" class="PrimaryButton StartPauseTimer">Moves: 0</span>
-		<button id="helpButton" class="PrimaryButton" onclick="window.location.href='feedback.html'">Help</button>
+        <button id="tutorialButton" class="PrimaryButton">Tutorial</button>
     </div>
     
     <canvas id="GameBoard" width="1000" height="1000"></canvas>
